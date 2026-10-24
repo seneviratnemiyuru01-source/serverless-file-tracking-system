@@ -1,10 +1,10 @@
 flowchart TD
-    Client --> API_Gateway
-    API_Gateway --> Lambda
-    Lambda --> S3
-    Lambda --> DynamoDB
-    Lambda --> CloudWatch_Logs
-    CloudFormation --> API_Gateway
-    CloudFormation --> Lambda
-    CloudFormation --> S3
-    CloudFormation --> DynamoDB
+    Client[Client] -->|POST /files or GET /status/fileId| API[Amazon API Gateway]
+    API --> Lambda[AWS Lambda]
+    Lambda -->|Store uploaded file| S3[Amazon S3]
+    Lambda -->|Save tracking record| DDB[Amazon DynamoDB]
+    Lambda --> Logs[Amazon CloudWatch Logs]
+    CF[AWS CloudFormation] -.->|Deploys infrastructure| API
+    CF -.-> Lambda
+    CF -.-> S3
+    CF -.-> DDB
