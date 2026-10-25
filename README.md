@@ -36,3 +36,5 @@ flowchart TD
     CF -.-> S3
     CF -.-> DB
 ```
+
+AI Use Disclosure: ChatGPT was utilized for technical explanations, debugging assistance and reviewing project documentation. I reviewed the information and made the final decisions about the project implementation and documentation. 
