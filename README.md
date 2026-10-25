@@ -1,10 +1,10 @@
-Serverless File Processing and Tracking System
+# Serverless File Processing and Tracking System
 
-Project Overview
+## Project Overview
 
 This project is a serverless application built on AWS for uploading text files and tracking each text file's processing status. A user can submit a text file through an API, have the application store the file in Amazon S3, and retrieve its processing status from a tracking record stored in Amazon DynamoDB. The infrastructure is defined utilizing AWS CloudFormation, making it possible to deploy the application’s resources together as a stack.
 
-Architecture
+## Architecture
 The diagram below illustrates the main components of the application and how they interact together:
 
 ```mermaid
@@ -20,7 +20,7 @@ flowchart TD
     CF -.-> DB
 ```
 
-AWS Services Utilized:
+## AWS Services Utilized:
 
 * Amazon API Gateway: Provides the API endpoints utilized to upload files and retrieve their status.
 * AWS Lambda: Handles incoming requests, coordinates file storage and status tracking.
@@ -29,7 +29,7 @@ AWS Services Utilized:
 * Amazon CloudWatch Logs: Provides logs that can be utilized to troubleshoot Lambda executions.
 * AWS CloudFormation: Defines and deploys the application’s infrastructure as code.
 
-Prerequisites:
+## Prerequisites:
 Before deploying the application, make sure you have:
 * An AWS account with permission to create the resources defined in template.yaml.
 * AWS CLI installed and configured with valid credentials.
@@ -40,7 +40,7 @@ Confirm that the AWS CLI is installed and your credentials are functioning:
 aws --version
 aws sts get-caller-identity
 
-Deployment:
+## Deployment:
 
 1. Clone the repository
 
@@ -73,7 +73,7 @@ aws cloudformation describe-stacks \
 
 Utilize the returned values to identify the API endpoints and AWS resources for your deployment. These values are specific to the deployed stack, so they are not hard-coded into this README.
 
-Utilizing the Application:
+## Utilizing the Application:
 
 1. Upload a text file
 
@@ -107,20 +107,20 @@ After uploading a file, verify the result in AWS:
 
 The CloudFormation outputs identify the resource names for your deployed stack.
 
-Test Evidence:
+## Test Evidence:
 
 During testing, demo.txt was uploaded and the application returned the status PROCESSED. The uploaded object was verified in Amazon S3, and its tracking record was verified in Amazon DynamoDB.
 
 The evidence/ directory contains screenshots documenting the deployment and testing process.
 
-Repository Contents:
+## Repository Contents:
 
 * README.md — Project overview, architecture, prerequisites, deployment, usage, testing, and cleanup instructions.
 * architecture.png — The standalone architecture diagram displayed above.
 * template.yaml — AWS CloudFormation template defining the application’s infrastructure.
 * evidence/ — Screenshots documenting deployment and testing.
 
-Cleanup:
+## Cleanup:
 
 After saving the required screenshots and evidence, delete the CloudFormation stack to remove the deployed resources and help avoid ongoing charges.
 
@@ -136,9 +136,8 @@ aws cloudformation wait stack-delete-complete \
 
 Confirm that the stack has been deleted before considering cleanup complete.
 
-AI Use Disclosure:
+## AI Use Disclosure:
 
 ChatGPT was utilized for technical explanations, debugging assistance and reviewing project documentation. I reviewed the information and made the final decisions about the project’s implementation and documentation.
-AI Use Disclosure
 
 ChatGPT was used for technical explanations, debugging assistance, and reviewing project documentation. I reviewed the information and made the final decisions about the project’s implementation and documentation.
