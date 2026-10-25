@@ -23,3 +23,16 @@ Uploading demo.txt returned PROCESSED. The file was verified in S3, and its trac
 
 ## Cleanup
 After saving the required evidence, delete the CloudFormation stack to avoid ongoing charges.
+
+```mermaid
+flowchart TD
+    Client["Client / User"] --> API["Amazon API Gateway"]
+    API --> Lambda["AWS Lambda"]
+    Lambda --> S3["Amazon S3: Uploaded Files"]
+    Lambda --> DB["Amazon DynamoDB: Tracking Records"]
+    Lambda --> Logs["Amazon CloudWatch Logs"]
+    CF["AWS CloudFormation"] -.-> API
+    CF -.-> Lambda
+    CF -.-> S3
+    CF -.-> DB
+```
